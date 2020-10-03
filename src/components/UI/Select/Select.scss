@@ -1,0 +1,7 @@
+@import '../../../sass/colors';
+.CustomSelect {
+    & > div {
+        border-color: $color-purple;
+        padding: 12px;
+    }
+}

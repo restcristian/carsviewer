@@ -6,13 +6,10 @@ import modelsReducer from '../../../store/Models';
 import { IMakesState } from '../../../store/Makes/reducers';
 import { IModelsState } from '../../../store/Models/reducers';
 import { RootState } from '../../../store/reducers';
-import Select from 'react-select';
+import Select from '../../UI/Select';
 import ErrorModal from '../../ErrorModal';
+import { IOption } from '../../UI/Select/types';
 
-interface Option {
-    label: string;
-    value: string;
-}
 const FilterModel: FC = () => {
     const dispatch = useDispatch();
     const { models, currentModel, hasError, isLoading } = useSelector(
@@ -31,15 +28,15 @@ const FilterModel: FC = () => {
         }
     };
 
-    const getOptions = (): Option[] => models.map((model) => ({ label: model, value: model }));
+    const getOptions = (): IOption[] => models.map((model) => ({ label: model, value: model }));
 
-    const getCurrentOption = (): Option | null => (currentModel ? { label: currentModel, value: currentModel } : null);
+    const getCurrentOption = (): IOption | null => (currentModel ? { label: currentModel, value: currentModel } : null);
 
     const hasModels = models.length > 0;
 
     const isDisabled = () => isLoading || hasError || !hasModels;
 
-    const onModelChangeHandler = (model: Option | any) => {
+    const onModelChangeHandler = (model: IOption | any) => {
         dispatch(updateCurrentModel(model.value));
     };
 

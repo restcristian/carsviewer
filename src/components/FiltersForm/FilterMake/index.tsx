@@ -4,13 +4,10 @@ import { fetchMakes, updateCurrentMake } from '../../../store/Makes/actions';
 import makesReducer from '../../../store/Makes';
 import { IMakesState } from '../../../store/Makes/reducers';
 import { RootState } from '../../../store/reducers';
-import Select from 'react-select';
+import Select from '../../UI/Select';
 import ErrorModal from '../../ErrorModal';
+import { IOption } from '../../UI/Select/types';
 
-interface Option {
-    label: string;
-    value: string;
-}
 const FilterMake: FC = () => {
     const dispatch = useDispatch();
     const { makes, currentMake, isLoading, hasError } = useSelector(
@@ -21,9 +18,9 @@ const FilterMake: FC = () => {
         dispatch(fetchMakes());
     }, [dispatch]);
 
-    const getOptions = (): Option[] => makes.map((make) => ({ label: make, value: make }));
+    const getOptions = (): IOption[] => makes.map((make) => ({ label: make, value: make }));
 
-    const getCurrentOption = (): Option | null => (currentMake ? { label: currentMake, value: currentMake } : null);
+    const getCurrentOption = (): IOption | null => (currentMake ? { label: currentMake, value: currentMake } : null);
 
     const hasMakes = makes.length > 0;
 
@@ -31,7 +28,7 @@ const FilterMake: FC = () => {
 
     const getPlaceHolder = () => (hasMakes ? 'Select Make' : 'No makes available at the moment');
 
-    const onMakeChangeHandler = (make: Option | any) => {
+    const onMakeChangeHandler = (make: IOption | any) => {
         dispatch(updateCurrentMake(make.value));
     };
 

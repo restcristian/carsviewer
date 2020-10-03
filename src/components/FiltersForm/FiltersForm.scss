@@ -1,0 +1,25 @@
+@import '../../sass/breakpoints';
+@import '../../sass/colors';
+
+.FiltersForm {
+    padding: 24px 0;
+    background-color: $color-purple-2;
+    border-top: 2px solid $color-purple;
+    border-bottom: 2px solid $color-purple;
+
+    &__row {
+        padding: 0 12px;
+        @media (min-width: $breakpoint-medium) {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    &__col {
+        margin: 12px 0;
+        @media (min-width: $breakpoint-medium) {
+            width: 50%;
+            padding: 0 12px;
+        }
+    }
+}

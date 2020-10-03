@@ -3,3 +3,9 @@
 body {
     background-color: $color-background;
 }
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}

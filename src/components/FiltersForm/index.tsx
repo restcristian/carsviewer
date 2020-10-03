@@ -12,6 +12,9 @@ import { fetchVehicles } from '../../store/Vehicles/actions';
 import ErrorModal from '../ErrorModal';
 import { IVehiclesState } from '../../store/Vehicles/reducers';
 
+import './FiltersForm.scss';
+import Button from '../UI/Button';
+
 const FiltersForm: FC = () => {
     const { hasError: makesHasError, isLoading: makesIsLoading, currentMake } = useSelector(
         (state: RootState): IMakesState => state[makesReducer.name],
@@ -32,21 +35,31 @@ const FiltersForm: FC = () => {
     const getVehicles = () => dispatch(fetchVehicles(currentMake || '', currentModel || ''));
 
     return (
-        <>
+        <div className="FiltersForm">
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
                     getVehicles();
                 }}
             >
-                <FilterMake />
-                <FilterModel />
-                <button type="submit" disabled={disableButton()}>
-                    Search Your Vehicle
-                </button>
+                <div className="FiltersForm__row">
+                    <div className="FiltersForm__col">
+                        <FilterMake />
+                    </div>
+
+                    <div className="FiltersForm__col">
+                        <FilterModel />
+                    </div>
+                </div>
+
+                <div className="FiltersForm__row">
+                    <Button type="submit" disabled={disableButton()} isLoading={vehiclesIsLoading}>
+                        Search Your Vehicle
+                    </Button>
+                </div>
             </form>
             <ErrorModal hasError={vehiclesHasError} message="Error while fetching Vehicles" onConfirm={getVehicles} />
-        </>
+        </div>
     );
 };
 

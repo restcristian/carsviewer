@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Logo from '../../assets/img/logo.svg';
+import FiltersForm from '../FiltersForm';
 import './Header.scss';
 
 const Header: FC = () => {
@@ -10,6 +11,7 @@ const Header: FC = () => {
                     <img src={Logo} alt="Friday Logo" />
                 </div>
             </nav>
+            <FiltersForm />
         </header>
     );
 };

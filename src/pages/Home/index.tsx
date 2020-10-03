@@ -1,12 +1,7 @@
 import React, { FC } from 'react';
-import FiltersForm from '../../components/FiltersForm';
 
 const Home: FC = () => {
-    return (
-        <>
-            <FiltersForm />
-        </>
-    );
+    return <>here is to show vehicles</>;
 };
 
 export default Home;
