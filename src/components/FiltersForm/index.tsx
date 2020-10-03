@@ -30,7 +30,13 @@ const FiltersForm: FC = () => {
     const dispatch = useDispatch();
 
     const disableButton = () =>
-        modelHasError || makesHasError || modelIsLoading || makesIsLoading || !currentModel || !currentMake;
+        modelHasError ||
+        makesHasError ||
+        modelIsLoading ||
+        makesIsLoading ||
+        vehiclesIsLoading ||
+        !currentModel ||
+        !currentMake;
 
     const getVehicles = () => dispatch(fetchVehicles(currentMake || '', currentModel || ''));
 
