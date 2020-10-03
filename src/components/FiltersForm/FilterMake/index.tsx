@@ -24,7 +24,11 @@ const FilterMake: FC = () => {
 
     const getCurrentOption = (): Option | null => (currentMake ? { label: currentMake, value: currentMake } : null);
 
-    const isDisabled = () => isLoading || hasError;
+    const hasMakes = makes.length > 0;
+
+    const isDisabled = () => isLoading || hasError || !hasMakes;
+
+    const getPlaceHolder = () => (hasMakes ? 'Select Make' : 'No makes available at the moment');
 
     const onMakeChangeHandler = (make: Option | any) => {
         dispatch(updateCurrentMake(make.value));
@@ -38,7 +42,7 @@ const FilterMake: FC = () => {
                 options={getOptions()}
                 onChange={onMakeChangeHandler}
                 value={getCurrentOption()}
-                placeholder="Select Make"
+                placeholder={getPlaceHolder()}
             />
             {hasError && 'Dude with have an error'}
         </div>
