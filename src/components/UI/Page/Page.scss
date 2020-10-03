@@ -1,0 +1,9 @@
+@import '../../../sass/breakpoints';
+
+.Page {
+    margin-top: 392px;
+    padding: 0 12px;
+    @media (min-width: $breakpoint-medium) {
+        margin-top: 300px;
+    }
+}

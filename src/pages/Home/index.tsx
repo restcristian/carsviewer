@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import Page from '../../components/UI/Page/Page';
 
 const Home: FC = () => {
-    return <>here is to show vehicles</>;
+    return <Page>This is where the vehicles should go</Page>;
 };
 
 export default Home;
