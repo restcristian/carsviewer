@@ -1,0 +1,22 @@
+@import '../../sass/colors';
+@import '../../sass/breakpoints';
+
+.Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        padding: 0 24px;
+        background-color: $color-white;
+        @media (min-width: $breakpoint-medium) {
+            justify-content: space-between;
+        }
+    }
+}
