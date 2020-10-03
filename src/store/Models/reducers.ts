@@ -46,8 +46,9 @@ const reducers = (state = initialState, action: ModelsActionTypes): IModelsState
                 ...state,
                 currentModel: action.payload,
             };
+        default:
+            return state;
     }
-    return state;
 };
 
 export default reducers;
