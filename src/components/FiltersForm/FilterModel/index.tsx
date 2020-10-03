@@ -7,6 +7,7 @@ import { IMakesState } from '../../../store/Makes/reducers';
 import { IModelsState } from '../../../store/Models/reducers';
 import { RootState } from '../../../store/reducers';
 import Select from 'react-select';
+import ErrorModal from '../../ErrorModal';
 
 interface Option {
     label: string;
@@ -20,11 +21,15 @@ const FilterModel: FC = () => {
     const { currentMake } = useSelector((state: RootState): IMakesState => state[makesReducer.name]);
 
     useEffect(() => {
+        getModels();
+    }, [dispatch, currentMake]);
+
+    const getModels = () => {
         if (currentMake) {
             dispatch(fetchModels(currentMake));
             dispatch(updateCurrentModel(''));
         }
-    }, [dispatch, currentMake]);
+    };
 
     const getOptions = (): Option[] => models.map((model) => ({ label: model, value: model }));
 
@@ -50,7 +55,7 @@ const FilterModel: FC = () => {
                 value={getCurrentOption()}
                 placeholder={getPlaceHolder()}
             />
-            {hasError && 'Dude with have an error'}
+            <ErrorModal hasError={hasError} message="Error while fetching models" onConfirm={() => getModels()} />
         </div>
     );
 };

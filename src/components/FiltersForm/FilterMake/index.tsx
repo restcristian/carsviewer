@@ -5,6 +5,7 @@ import makesReducer from '../../../store/Makes';
 import { IMakesState } from '../../../store/Makes/reducers';
 import { RootState } from '../../../store/reducers';
 import Select from 'react-select';
+import ErrorModal from '../../ErrorModal';
 
 interface Option {
     label: string;
@@ -44,7 +45,11 @@ const FilterMake: FC = () => {
                 value={getCurrentOption()}
                 placeholder={getPlaceHolder()}
             />
-            {hasError && 'Dude with have an error'}
+            <ErrorModal
+                hasError={hasError}
+                message={'Error while fetching makes'}
+                onConfirm={() => dispatch(fetchMakes())}
+            />
         </div>
     );
 };
