@@ -4,11 +4,7 @@ import FiltersForm from '../../components/FiltersForm';
 const Home: FC = () => {
     return (
         <>
-            <FiltersForm
-                onFormSubmit={() => {
-                    console.log('search');
-                }}
-            />
+            <FiltersForm />
         </>
     );
 };

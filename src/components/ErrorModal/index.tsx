@@ -15,7 +15,9 @@ const ErrorModal: FC<ErrorProps> = ({ hasError, message, onConfirm }) => {
                     <span className="ErrorModal__content-title">{message}</span>
                 </div>
                 <div className="ErrorModal__content-item">
-                    <button onClick={onConfirm}>Retry</button>
+                    <button onClick={onConfirm} type="button">
+                        Retry
+                    </button>
                 </div>
             </div>
         </div>
