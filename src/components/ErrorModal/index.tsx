@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Button from '../UI/Button';
 import './ErrorModal.scss';
 
 interface ErrorProps {
@@ -15,9 +16,9 @@ const ErrorModal: FC<ErrorProps> = ({ hasError, message, onConfirm }) => {
                     <span className="ErrorModal__content-title">{message}</span>
                 </div>
                 <div className="ErrorModal__content-item">
-                    <button onClick={onConfirm} type="button">
+                    <Button onClick={onConfirm} type="button">
                         Retry
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>

@@ -8,11 +8,11 @@ interface ButtonProps {
     isLoading?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ children, isLoading, disabled, type }) => {
+const Button: FC<ButtonProps> = ({ children, isLoading, disabled, type, onClick }) => {
     const getContent = () => (isLoading ? 'Loading...' : children);
 
     return (
-        <button type={type} className="Button" disabled={disabled}>
+        <button type={type} className="Button" disabled={disabled} onClick={onClick}>
             {getContent()}
         </button>
     );
