@@ -10,7 +10,7 @@ export interface IVehicle {
     make: string;
     model: string;
     enginePowerPS: number;
-    enginePowerPW: number;
+    enginePowerKW: number;
     fuelType: string;
     bodyType: string;
     engineCapacity: number;
