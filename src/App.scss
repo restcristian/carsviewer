@@ -1,0 +1,11 @@
+@import './sass/_colors.scss';
+
+body {
+    background-color: $color-background;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
