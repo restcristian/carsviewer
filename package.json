@@ -28,8 +28,10 @@
         "eject": "react-scripts eject"
     },
     "husky": {
-        "pre-commit": "npm run test",
-        "pre-push": "npm run test"
+        "hooks": {
+            "pre-commit": "npm run test",
+            "pre-push": "npm run test"
+        }
     },
     "eslintConfig": {
         "extends": "react-app"
