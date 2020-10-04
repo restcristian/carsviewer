@@ -10,16 +10,16 @@ const VehicleList: FC = () => {
     const { vehicles, isLoading } = useSelector((state: RootState): IVehiclesState => state[vehiclesReducer.name]);
 
     if (isLoading) {
-        return <h3>Fetching Vehicles</h3>;
+        return <h3 data-testid="header-vehicles-loading">Fetching Vehicles</h3>;
     }
     if (vehicles.length === 0) {
-        return <h3>No Vehicles to be Shown</h3>;
+        return <h3 data-testid="header-vehicles-no-vehicles">No Vehicles to be Shown</h3>;
     }
+
     return (
-        <ul className="VehicleList">
+        <ul className="VehicleList" data-testid="vehicle-list">
             {vehicles.map((vehicle, index) => (
                 <li className="VehicleList__item" key={index}>
-                    {/* {vehicle.make} */}
                     <div className="VehicleList__item-content">
                         <h4 className="VehicleList__item-title">{`${vehicle.make} ${vehicle.model}`}</h4>
                         <ul className="VehicleList__item-properties">

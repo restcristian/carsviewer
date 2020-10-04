@@ -41,7 +41,7 @@ const FiltersForm: FC = () => {
     const getVehicles = () => dispatch(fetchVehicles(currentMake || '', currentModel || ''));
 
     return (
-        <div className="FiltersForm">
+        <div className="FiltersForm" data-testid="filter-form">
             <form
                 onSubmit={(e) => {
                     e.preventDefault();

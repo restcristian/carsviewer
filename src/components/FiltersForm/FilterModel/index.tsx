@@ -43,7 +43,7 @@ const FilterModel: FC = () => {
     const getPlaceHolder = () => (hasModels ? 'Select Model' : 'No models available for this mark.');
 
     return (
-        <div>
+        <div data-testid="filter-model">
             <Select
                 isLoading={isLoading}
                 isDisabled={isDisabled()}

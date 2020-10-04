@@ -33,7 +33,7 @@ const FilterMake: FC = () => {
     };
 
     return (
-        <div>
+        <div data-testid="filter-make">
             <Select
                 isLoading={isLoading}
                 isDisabled={isDisabled()}
