@@ -1,6 +1,6 @@
 # CarsViewer
 
-Web application developed as a Candidate Assignment for FRIDAY. Consists of a Single Page Application that allows the user to find cars by Make and Models.
+Consists of a Single Page Application that allows the user to find cars by Make and Models.
 
 ## Technologies Used:
 
